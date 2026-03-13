@@ -1,0 +1,76 @@
+================================================
+HACKERRANK – PYTHON BASIC EXERCISES
+================================================
+
+
+1] Printing Hello World
+-----------------------
+This simple program prints a greeting message on the screen.
+
+print("Hello, World!")
+
+
+------------------------------------------------
+
+
+2] Conditional Statement Example
+--------------------------------
+This program checks the value of n and prints "Weird" or "Not Weird"
+based on given conditions.
+
+n = int(input())
+
+if n % 2 != 0:
+    print("Weird")
+
+elif n >= 2 and n <= 5:
+    print("Not Weird")
+
+elif n >= 6 and n <= 20:
+    print("Weird")
+
+else:
+    print("Not Weird")
+
+
+------------------------------------------------
+
+
+3] Basic Arithmetic Operations
+------------------------------
+The following program performs addition, subtraction,
+and multiplication of two numbers.
+
+a = int(input())
+b = int(input())
+
+print(a + b)
+print(a - b)
+print(a * b)
+
+
+------------------------------------------------
+
+
+4] Division Operations in Python
+--------------------------------
+This program demonstrates integer division and floating-point division.
+
+a = int(input())
+b = int(input())
+
+print(a // b)
+print(a / b)
+
+
+------------------------------------------------
+
+
+5] Loop Example – Squares of Numbers
+------------------------------------
+This program prints the square of each number from 0 to n-1.
+
+n = int(input())
+
+for i in range(n):
+    print(i ** 2)
