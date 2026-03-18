@@ -1,0 +1,156 @@
+## PYTHON HACKERRANK PRACTICE PROBLEMS
+
+1. Compare the Triplets
+
+---
+
+Link:
+https://www.hackerrank.com/challenges/compare-the-triplets/problem
+
+Objective:
+Compare scores of two players and assign points.
+
+Code:
+def compare_scores(a, b):
+alice = 0
+bob = 0
+
+```
+for i in range(3):
+    if a[i] > b[i]:
+        alice += 1
+    elif a[i] < b[i]:
+        bob += 1
+
+return alice, bob
+```
+
+Example:
+Input:
+5 6 7
+3 6 10
+
+Output:
+1 1
+
+2. A Very Big Sum
+
+---
+
+Link:
+https://www.hackerrank.com/challenges/a-very-big-sum/problem
+
+Objective:
+Calculate sum of large integers in an array.
+
+Code:
+def large_sum(arr):
+total = 0
+for num in arr:
+total += num
+return total
+
+Example:
+Input:
+5
+1000000001 1000000002 1000000003 1000000004 1000000005
+
+Output:
+5000000015
+
+3. Diagonal Difference
+
+---
+
+Link:
+https://www.hackerrank.com/challenges/diagonal-difference/problem
+
+Objective:
+Find absolute difference between diagonals of a matrix.
+
+Code:
+def find_diagonal_difference(matrix):
+n = len(matrix)
+d1 = 0
+d2 = 0
+
+```
+for i in range(n):
+    d1 += matrix[i][i]
+    d2 += matrix[i][n - i - 1]
+
+return abs(d1 - d2)
+```
+
+Example:
+Input:
+3
+11 2 4
+4 5 6
+10 8 -12
+
+Output:
+15
+
+4. Plus Minus
+
+---
+
+Link:
+https://www.hackerrank.com/challenges/plus-minus/problem
+
+Objective:
+Calculate ratio of positive, negative, and zero elements.
+
+Code:
+def calculate_ratios(arr):
+total = len(arr)
+pos = neg = zero = 0
+
+```
+for x in arr:
+    if x > 0:
+        pos += 1
+    elif x < 0:
+        neg += 1
+    else:
+        zero += 1
+
+print(f"{pos/total:.6f}")
+print(f"{neg/total:.6f}")
+print(f"{zero/total:.6f}")
+```
+
+Example:
+Input:
+6
+-4 3 -9 0 4 1
+
+Output:
+0.500000
+0.333333
+0.166667
+
+5. Array Rotation
+
+---
+
+Objective:
+Rotate array elements by given positions.
+
+Code:
+arr = list(map(int, input().split()))
+k = int(input())
+
+n = len(arr)
+result = arr[n-k:] + arr[:n-k]
+
+print(result)
+
+Example:
+Input:
+2 4 5 6 2
+3
+
+Output:
+[5, 6, 2, 2, 4]
