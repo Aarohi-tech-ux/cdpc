@@ -1,0 +1,228 @@
+PYTHON DSA & ADVANCED PROBLEM SOLVING
+====================================
+
+
+----------------------------------------
+1) PALINDROME NUMBER CHECK
+----------------------------------------
+Link:
+https://leetcode.com/problems/palindrome-number/
+
+Task:
+Verify whether a given integer reads the same forward and backward.
+
+class Solution(object):
+    def isPalindrome(self, x):
+        temp = x
+        rev_num = 0
+
+        while x > 0:
+            rem = x % 10
+            rev_num = rev_num * 10 + rem
+            x = x // 10
+
+        return temp == rev_num
+
+
+Example:
+Input : 121
+Output: True
+
+
+
+----------------------------------------
+2) RICHEST CUSTOMER WEALTH
+----------------------------------------
+Link:
+https://leetcode.com/problems/richest-customer-wealth/
+
+Task:
+Determine the highest total wealth among all customers.
+
+class Solution(object):
+    def maximumWealth(self, accounts):
+        highest = 0
+
+        for acc in accounts:
+            current_sum = sum(acc)
+
+            if current_sum > highest:
+                highest = current_sum
+
+        return highest
+
+
+
+----------------------------------------
+3) PRODUCT OF ARRAY (WITH MOD)
+----------------------------------------
+Link:
+https://www.hackerearth.com/practice/basic-programming/input-output/basics-of-input-output/practice-problems/algorithm/find-product/
+
+Task:
+Compute multiplication of all elements using modulo (10^9 + 7).
+
+size = int(input())
+numbers = list(map(int, input().split()))
+
+MOD = 1000000007
+product = 1
+
+for val in numbers:
+    product = (product * val) % MOD
+
+print(product)
+
+
+Example:
+Input:
+5
+1 2 3 4 5
+
+Output:
+120
+
+
+
+----------------------------------------
+4) STAIRCASE PATTERN PRINT
+----------------------------------------
+Link:
+https://www.hackerrank.com/challenges/staircase/problem
+
+Task:
+Display a right-aligned staircase using '#'.
+
+def print_staircase(n):
+    for step in range(1, n + 1):
+        spaces = " " * (n - step)
+        blocks = "#" * step
+        print(spaces + blocks)
+
+num = int(input())
+print_staircase(num)
+
+
+Example:
+Input: 6
+
+Output:
+     #
+    ##
+   ###
+  ####
+ #####
+######
+
+
+
+----------------------------------------
+5) MAGIC MATRIX (CONCEPT)
+----------------------------------------
+Task:
+A 3x3 grid where every row, column, and diagonal gives the same sum.
+
+Example Matrix:
+8  1  6
+3  5  7
+4  9  2
+
+
+
+----------------------------------------
+6) MINI-MAX SUM
+----------------------------------------
+Link:
+https://www.hackerrank.com/challenges/mini-max-sum/
+
+Task:
+Find smallest and largest sum by adding exactly 4 out of 5 numbers.
+
+def min_max(arr):
+    total_sum = sum(arr)
+    smallest = min(arr)
+    largest = max(arr)
+
+    min_sum = total_sum - largest
+    max_sum = total_sum - smallest
+
+    print(min_sum, max_sum)
+
+values = list(map(int, input().split()))
+min_max(values)
+
+
+Example:
+Input:
+1 2 3 4 5
+
+Output:
+10 14
+
+
+
+----------------------------------------
+7) BIRTHDAY CAKE CANDLES
+----------------------------------------
+Link:
+https://www.hackerrank.com/challenges/birthday-cake-candles/
+
+Task:
+Count how many candles have the maximum height.
+
+def count_tallest(arr):
+    tallest = max(arr)
+    count = 0
+
+    for h in arr:
+        if h == tallest:
+            count += 1
+
+    return count
+
+candles = list(map(int, input().split()))
+print(count_tallest(candles))
+
+
+Example:
+Input:
+3 2 1 3
+
+Output:
+2
+
+
+
+----------------------------------------
+8) TIME FORMAT CONVERSION
+----------------------------------------
+Link:
+https://www.hackerrank.com/challenges/time-conversion/
+
+Task:
+Convert time from 12-hour format to 24-hour format.
+
+def convert_time(t):
+    hour = t[:2]
+    period = t[-2:]
+    rest = t[2:8]
+
+    if period == "AM":
+        if hour == "12":
+            return "00" + rest
+        return hour + rest
+    else:
+        if hour != "12":
+            return str(int(hour) + 12) + rest
+        return hour + rest
+
+time_input = input()
+print(convert_time(time_input))
+
+
+Example:
+Input:
+07:05:45PM
+
+Output:
+19:05:45
