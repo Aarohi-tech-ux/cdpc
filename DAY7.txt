@@ -1,0 +1,135 @@
+------------------------------------------------
+1. TWO SUM
+------------------------------------------------
+Link:
+https://leetcode.com/problems/two-sum/
+
+Goal:
+Find indices of two numbers whose sum equals a given target.
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        lookup = {}
+
+        for index, value in enumerate(nums):
+            required = target - value
+
+            if required in lookup:
+                return [lookup[required], index]
+
+            lookup[value] = index
+
+
+------------------------------------------------
+2. FIZZ BUZZ
+------------------------------------------------
+Link:
+https://leetcode.com/problems/fizz-buzz/
+
+Goal:
+Print numbers from 1 to n with:
+- "Fizz" for multiples of 3
+- "Buzz" for multiples of 5
+- "FizzBuzz" for multiples of both
+
+class Solution(object):
+    def fizzBuzz(self, n):
+        result = []
+
+        for num in range(1, n + 1):
+            if num % 15 == 0:
+                result.append("FizzBuzz")
+            elif num % 3 == 0:
+                result.append("Fizz")
+            elif num % 5 == 0:
+                result.append("Buzz")
+            else:
+                result.append(str(num))
+
+        return result
+
+
+------------------------------------------------
+3. RUNNING SUM OF ARRAY
+------------------------------------------------
+Link:
+https://leetcode.com/problems/running-sum-of-1d-array/
+
+Goal:
+Calculate cumulative sum of elements in a list.
+
+class Solution(object):
+    def runningSum(self, nums):
+        output = []
+        current_sum = 0
+
+        for num in nums:
+            current_sum += num
+            output.append(current_sum)
+
+        return output
+
+
+------------------------------------------------
+4. STACK USING LIST
+------------------------------------------------
+Goal:
+Basic stack operations using Python list.
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, value):
+        self.items.append(value)
+        print("Inserted:", value)
+
+    def pop(self):
+        if self.is_empty():
+            return "No elements in stack"
+        return self.items.pop()
+
+    def peek(self):
+        if self.is_empty():
+            return "No elements in stack"
+        return self.items[-1]
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+
+# Sample Run
+stack_obj = Stack()
+stack_obj.push(5)
+stack_obj.push(15)
+stack_obj.push(25)
+
+print("Top:", stack_obj.peek())
+print("Removed:", stack_obj.pop())
+print("Current Stack:", stack_obj.items)
+
+
+------------------------------------------------
+5. NEXT GREATER ELEMENT
+------------------------------------------------
+Goal:
+For each element, find the next greater element on the right.
+
+def find_next_greater(arr):
+    size = len(arr)
+    answer = [-1] * size
+    temp_stack = []
+
+    for i in range(size):
+        while temp_stack and arr[i] > arr[temp_stack[-1]]:
+            idx = temp_stack.pop()
+            answer[idx] = arr[i]
+
+        temp_stack.append(i)
+
+    return answer
+
+
+# Example Usage
+arr = list(map(int, input("Enter values: ").split()))
+print(find_next_greater(arr))
