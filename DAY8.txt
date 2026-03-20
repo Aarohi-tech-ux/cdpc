@@ -1,0 +1,141 @@
+
+----------------------------------------
+1) TWO SUM PROBLEM
+----------------------------------------
+Link:
+https://leetcode.com/problems/two-sum/
+
+Description:
+Identify two positions in the array whose values add up to the given target.
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        store = {}
+
+        for idx in range(len(nums)):
+            value = nums[idx]
+            needed = target - value
+
+            if needed in store:
+                return [store[needed], idx]
+
+            store[value] = idx
+
+
+
+----------------------------------------
+2) FIZZ BUZZ LOGIC
+----------------------------------------
+Link:
+https://leetcode.com/problems/fizz-buzz/
+
+Description:
+Print numbers from 1 to n with rules:
+- Replace multiples of 3 with "Fizz"
+- Replace multiples of 5 with "Buzz"
+- Replace multiples of both with "FizzBuzz"
+
+class Solution(object):
+    def fizzBuzz(self, n):
+        output = []
+
+        for num in range(1, n + 1):
+            if num % 15 == 0:
+                output.append("FizzBuzz")
+            elif num % 3 == 0:
+                output.append("Fizz")
+            elif num % 5 == 0:
+                output.append("Buzz")
+            else:
+                output.append(str(num))
+
+        return output
+
+
+
+----------------------------------------
+3) RUNNING (CUMULATIVE) SUM
+----------------------------------------
+Link:
+https://leetcode.com/problems/running-sum-of-1d-array/
+
+Description:
+Generate a new list where each element is the sum of all previous elements.
+
+class Solution(object):
+    def runningSum(self, nums):
+        cumulative = []
+        running_total = 0
+
+        for num in nums:
+            running_total = running_total + num
+            cumulative.append(running_total)
+
+        return cumulative
+
+
+
+----------------------------------------
+4) STACK OPERATIONS USING LIST
+----------------------------------------
+Description:
+Implementation of stack with basic operations (push, pop, peek).
+
+class Stack:
+    def __init__(self):
+        self.data = []
+
+    def push(self, val):
+        self.data.append(val)
+        print("Added:", val)
+
+    def pop(self):
+        if len(self.data) == 0:
+            return "Empty Stack"
+        return self.data.pop()
+
+    def peek(self):
+        if len(self.data) == 0:
+            return "Empty Stack"
+        return self.data[-1]
+
+    def is_empty(self):
+        return len(self.data) == 0
+
+
+# Demo
+stk = Stack()
+stk.push(100)
+stk.push(200)
+stk.push(300)
+
+print("Top:", stk.peek())
+print("Removed:", stk.pop())
+print("Stack Now:", stk.data)
+
+
+
+----------------------------------------
+5) NEXT GREATER ELEMENT
+----------------------------------------
+Description:
+For each element, determine the next greater value on its right side.
+
+def next_greater(arr):
+    length = len(arr)
+    answer = [-1] * length
+    st = []
+
+    for i in range(length):
+        while st and arr[i] > arr[st[-1]]:
+            pos = st.pop()
+            answer[pos] = arr[i]
+
+        st.append(i)
+
+    return answer
+
+
+# Input / Output
+values = list(map(int, input("Enter numbers: ").split()))
+print(next_greater(values))
